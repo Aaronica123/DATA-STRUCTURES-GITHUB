@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pkgnew;
 //this is the  MAIN CLASS
 
@@ -12,25 +8,32 @@ public class New {
     public static void main(String[] args) {
   
        insert r=new insert();
-       //insertion
+       //insertion method
        r.ins(5);
        r.ins(7);
        r.ins(1);
        r.ins(9);
        r.ins(4);
-       //traversal order display operation
+       //traversal order method
+       System.out.print("This is the in_order ");
    r.in_order();
    
    System.out.println();
+      System.out.print("This is the in_order ");  
    r.post_order();
+      
    System.out.println();
+        System.out.print("This is the in_order "); 
    r.pre_order();
-   //search operation
+       
+   //search method
    r.search(6);
    r.search(7);
-   //deletion
+       
+   //deletion method
    r.main_delete(4);
-   
+        System.out.print("This is the in_order ");
+   r.in_order();
    
     }
     
