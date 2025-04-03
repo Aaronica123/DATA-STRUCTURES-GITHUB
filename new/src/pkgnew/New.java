@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package pkgnew;
-
+//this is the  MAIN CLASS
 
 public class New {
 
