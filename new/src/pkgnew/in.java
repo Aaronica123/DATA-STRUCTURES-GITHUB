@@ -88,6 +88,8 @@ public void post_order(){
 disp2(rot);
 }
 
+
+    //this is the search operation
 public void searc(in e, int q){
 int r=1;
 if(e==null)
@@ -121,48 +123,49 @@ Queue<in> queue=new LinkedList<>();
         searc(rot, q);
     
     }
+
+
+    //this is the deletion operation
     
     public void delete(in h, int d){
     if(h==null)
-        System.out.print("deleted");
+          return h;
     
-   Queue<in> queue=new LinkedList<>();
-  queue.add(h);
-in start;
-in finish;
-while(!queue.isEmpty()){
-    finish=queue.poll();
-    
-    if(finish.da==d){
-        start=finish;
-         for(;!queue.isEmpty();){
-      in current=queue.poll();
-      if(current.lft==start){
-            current.lft=null;
-          break;}
-      else
-         queue.add(current.lft);
-       if(current.rgh!=null&&current.rgh==start)
-           current.rgh=null;
-  
-  else
-         queue.add(current.rgh);
-         }
-        break;
-    }
-     if(finish.lft!=null)
-        queue.add(finish.lft);
-         if(finish.rgh!=null)
-        queue.add(finish.rgh);
-    
-        
-        
-    }
+     if (d < h.da) {
+         
+           h.lft = delete(h.lft, d);  
+        }  
+     else if (d > h.da) {
+           h.rgh = delete(h.rgh, d);
+        }
+     else
+     {
+           
+            if (h.lft == null) {
+            return h.rgh;
+            } 
+            else if (h.rgh == null) {
+                return  h.lft; 
+            }
+
+            //  Node with 2 children
+            in sd=findMin(h.rgh);
+         h.da=sd.da;
+           h.rgh=delete(h.rgh, sd.da);
+        }
+     
+        return h;
     }
     
-    public void main_delete(int d){
-    delete(rot, d);
-    }
+    
+    //  minimum value node in  subtree
+    public in findMin(in root) {
+        int min=root.da;
+        while (root.lft != null) {
+            min = root.lft.da;
+          
+        }
+        return root;}
 
 
 
